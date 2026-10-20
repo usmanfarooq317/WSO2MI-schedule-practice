@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sequence xmlns="http://ws.apache.org/ns/synapse" name="SystemAuditSequence">
+
+    <log level="custom">
+        <property name="JOB" value="SYSTEM AUDIT"/>
+        <property name="AUDIT_STATUS" value="Audit started"/>
+        <property name="ENVIRONMENT" value="LOCAL"/>
+        <property name="AUDIT_RESULT" value="Audit completed successfully"/>
+    </log>
+
+</sequence>

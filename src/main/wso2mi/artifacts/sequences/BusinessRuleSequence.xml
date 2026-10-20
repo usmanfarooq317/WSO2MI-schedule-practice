@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sequence xmlns="http://ws.apache.org/ns/synapse" name="BusinessRuleSequence">
+
+    <property name="ORDER_AMOUNT" value="1500"/>
+
+    <log level="custom">
+        <property name="JOB" value="BUSINESS RULE CHECK"/>
+        <property name="ORDER_AMOUNT" expression="get-property('ORDER_AMOUNT')"/>
+    </log>
+
+    <filter xpath="number(get-property('ORDER_AMOUNT')) &gt; 1000">
+        <then>
+            <log level="custom">
+                <property name="BUSINESS_RESULT" value="ORDER FLAGGED FOR REVIEW"/>
+            </log>
+        </then>
+        <else>
+            <log level="custom">
+                <property name="BUSINESS_RESULT" value="ORDER NORMAL"/>
+            </log>
+        </else>
+    </filter>
+
+</sequence>

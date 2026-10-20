@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sequence xmlns="http://ws.apache.org/ns/synapse" name="ScheduledPracticeSequence" onError="HealthCheckFaultSequence">
+
+    <log level="custom">
+        <property name="SCHEDULER" value="Health check started"/>
+    </log>
+
+    <sequence key="ApiHealthCheckSequence"/>
+
+</sequence>
